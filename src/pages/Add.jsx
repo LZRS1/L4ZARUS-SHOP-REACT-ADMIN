@@ -62,6 +62,7 @@ const Add = ({token}) => {
 
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3'>
+      <div>
         <div>
           <p className='mb-2'>Subir imagen</p>
 
@@ -284,15 +285,25 @@ const Add = ({token}) => {
               <p className={`${sizes.includes("COMPARTIDO") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>COMPARTIDO</p>
             </div>
           </div>
+
+          <div onClick={()=>setSizes(prev => prev.includes("CUENTA NUEVA") ? prev.filter( item => item !== "CUENTA NUEVA") : [...prev,"CUENTA NUEVA"])}>
+              <p className={`${sizes.includes("CUENTA NUEVA") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>CUENTA NUEVA</p>
+            </div>
+          </div>
+
+          
+
+          
+
         </div>
 
         <div className='flex gap-2 mt-2'>
           <input onChange={() => setBestseller(prev => !prev)} checked={bestseller} type="checkbox" id='bestseller' />
           <label className='cursor-pointer' htmlFor="bestseller">Añadir al best seller</label>
         </div>
-
         <button type="submit" className='w-28 py-3 mt-4 bg-black text-white'>AGREGAR</button>
-
+      </div>
+    </form>
     </form>
   )
 }
