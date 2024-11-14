@@ -302,8 +302,6 @@ const Add = ({token}) => {
           <label className='cursor-pointer' htmlFor="bestseller">Añadir al best seller</label>
         </div>
         <button type="submit" className='w-28 py-3 mt-4 bg-black text-white'>AGREGAR</button>
-      </div>
-    </form>
     </form>
   )
 }
