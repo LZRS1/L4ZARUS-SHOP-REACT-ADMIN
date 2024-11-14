@@ -290,11 +290,6 @@ const Add = ({token}) => {
               <p className={`${sizes.includes("CUENTA NUEVA") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>CUENTA NUEVA</p>
             </div>
           </div>
-
-          
-
-          
-
         </div>
 
         <div className='flex gap-2 mt-2'>
