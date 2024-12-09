@@ -8,12 +8,87 @@
 }
 
 select,input,textarea{
-    border: 1px solid #c2c2c2;
-    outline-color: #C586A5;
-    border-radius: 4px;
+    border: 2px solid #ff0000;
+    outline-color: #ff0000;
+    border-radius: 5px;
 }
 
 .active{
-    background-color: #ffebf5;
-    border-color: #C586A5;
+    background-color: #000000;
+    border-color: #ff0000;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+/* Gradiente en el texto */
+.text-gradient {
+    background: linear-gradient(45deg, #FF6A00, #FF0000);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* Gradiente en los bordes */
+  .border-gradient-orange-red {
+    background: linear-gradient(45deg, #FF6A00, #FF0000);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background-clip: padding-box;
+  }
+  
+  select {
+    background-color: black;
+    color: rgb(255, 0, 0);
+  }
+  
+  /* Gradiente en el texto */
+.text-gradient {
+    background: linear-gradient(45deg, #FF6A00, #FF0000);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* Gradiente en los bordes */
+  .border-gradient-orange-red {
+    background: linear-gradient(45deg, #FF6A00, #FF0000);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background-clip: padding-box;
+  }
+  
+  select {
+    background-color: black;
+    color: white;
+  }
+  
+  .border-gradient-to-r {
+    border-image: linear-gradient(45deg, #FF6A00, #FF0000) 1;
+  }
+  
+  /* Fondo de select con gradiente */
+  select {
+    border: 2px solid transparent;
+    background-image: linear-gradient(45deg, #000000, #FF0000);
+    border-radius: 4px;
+    background-clip: padding-box;
+  }
+
+  /* Bordes con gradiente */
+.border-gradient-to-r {
+    border-image: linear-gradient(45deg, #FF6A00, #FF0000) 1;
+  }
+  

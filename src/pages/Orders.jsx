@@ -1,6 +1,4 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { backendUrl, currency } from '../App'
 import { toast } from 'react-toastify'
@@ -11,13 +9,11 @@ const Orders = ({ token }) => {
   const [orders, setOrders] = useState([])
 
   const fetchAllOrders = async () => {
-
     if (!token) {
       return null;
     }
 
     try {
-
       const response = await axios.post(backendUrl + '/api/order/list', {}, { headers: { token } })
       if (response.data.success) {
         setOrders(response.data.orders.reverse())
@@ -28,13 +24,11 @@ const Orders = ({ token }) => {
     } catch (error) {
       toast.error(error.message)
     }
-
-
   }
 
-  const statusHandler = async ( event, orderId ) => {
+  const statusHandler = async (event, orderId) => {
     try {
-      const response = await axios.post(backendUrl + '/api/order/status' , {orderId, status:event.target.value}, { headers: {token}})
+      const response = await axios.post(backendUrl + '/api/order/status', { orderId, status: event.target.value }, { headers: { token } })
       if (response.data.success) {
         await fetchAllOrders()
       }
@@ -50,12 +44,12 @@ const Orders = ({ token }) => {
 
   return (
     <div>
-      <h3>PEDIDOS</h3>
+      <h3 className="text-red-600">PEDIDOS</h3>
       <div>
         {
           orders.map((order, index) => (
-            <div className='grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-200 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-sm text-gray-700' key={index}>
-              <img className='w-12' src={assets.parcel_icon} alt="" />
+            <div className='grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gradient-to-r from-red-500 to-orange-500 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-sm text-red-600' key={index}>
+              <img className='w-10' src={assets.logo} alt="" />
               <div>
                 <div>
                   {order.items.map((item, index) => {
@@ -77,11 +71,11 @@ const Orders = ({ token }) => {
               <div>
                 <p className='text-sm sm:text-[15px]'>PRODUCTOS : {order.items.length}</p>
                 <p className='mt-3'>METODO : {order.paymentMethod}</p>
-                <p>PAGO : { order.payment ? 'Done' : 'Pending' }</p>
+                <p>PAGO : {order.payment ? 'Done' : 'Pending'}</p>
                 <p>FECHA : {new Date(order.date).toLocaleDateString()}</p>
               </div>
               <p className='text-sm sm:text-[15px]'>{currency}{order.amount}</p>
-              <select onChange={(event)=>statusHandler(event,order._id)} value={order.status} className='p-2 font-semibold'>
+              <select onChange={(event) => statusHandler(event, order._id)} value={order.status} className='p-2 font-semibold border-2 border-gradient-to-r from-red-500 to-orange-500 bg-black text-white'>
                 <option value="Order Placed">Pedido realizado</option>
                 <option value="Packing">Embalaje</option>
                 <option value="Shipped">Enviado</option>
