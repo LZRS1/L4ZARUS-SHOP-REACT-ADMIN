@@ -259,6 +259,7 @@ const Add = ({token}) => {
                   <option value="YouTube Premium">YouTube Premium</option>
                   <option value="Zoom">Zoom</option>
                   <option value="Windows">Windows</option>
+                  <option value="PAQUETES">PAQUETES</option>
           </select>
         </div>
   
