@@ -283,6 +283,7 @@ const Add = ({token}) => {
                   <option value="12-MESES">12 MESES</option>
                   <option value="24-MESES">24 MESES</option>
                   <option value="inf">DE POR VIDA</option>
+                  <option value="Sin-Subcategoria">Sin Subcategoria</option>
           </select>
         </div>
   
